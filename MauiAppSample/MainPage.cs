@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Layouts;
 using CommunityToolkit.Maui.Markup;
-using MauiAppSample.Pages;
 
 namespace MauiAppSample;
 

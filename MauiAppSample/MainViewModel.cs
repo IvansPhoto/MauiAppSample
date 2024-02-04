@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace MauiAppSample.Pages;
+namespace MauiAppSample;
 
 [INotifyPropertyChanged]
 public partial class MainViewModel

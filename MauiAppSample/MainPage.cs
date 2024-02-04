@@ -12,15 +12,15 @@ public class MainPage : ContentPage
         {
             {
                 new Label()
-                    .Text("Top")
                     .Size(-1, 100)
-                    .Bind(Button.TextProperty, static (MainViewModel vm) => vm.ButtonText, mode: BindingMode.OneWay),
+                    .Bind(Label.TextProperty, static (MainViewModel vm) => vm.ButtonText, mode: BindingMode.OneWay),
                 DockPosition.Top
             },
             {
                 new Button()
                     .Text("Bottom")
                     .Size(-1, 100)
+                    .Bind(Button.TextProperty, static (MainViewModel vm) => vm.Text)
                     .BindCommand(static (MainViewModel vm) => vm.SetTextCommand,
                         parameterGetter: static (MainViewModel vm) => vm.Text,
                         parameterBindingMode: BindingMode.OneWay,

@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui.Core;
+﻿using System.Diagnostics;
+using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Layouts;
 using CommunityToolkit.Maui.Markup;
 
@@ -6,8 +7,9 @@ namespace MauiAppSample;
 
 public class MainPage : ContentPage
 {
-    public MainPage()
+    public MainPage(MainViewModel viewModel)
     {
+        BindingContext = viewModel;
         Content = new DockLayout
         {
             {
@@ -53,5 +55,19 @@ public class MainPage : ContentPage
                     setter: static (vm, s) => vm.Text = s,
                     mode: BindingMode.TwoWay)
         };
+    }
+    
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        Debug.WriteLine($"OnAppearing: {Title}");
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+
+        Debug.WriteLine($"OnDisappearing: {Title}");
     }
 }

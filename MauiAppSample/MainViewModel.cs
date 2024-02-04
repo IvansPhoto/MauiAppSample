@@ -7,7 +7,7 @@ namespace MauiAppSample;
 
 public partial class MainViewModel : ObservableObject
 {
-    private int _counter = 0;
+    private int _counter;
     
     private string _text = string.Empty;
     private string _buttonText = string.Empty;

@@ -1,19 +1,37 @@
 ﻿using System.Diagnostics;
+using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace MauiAppSample;
 
-[INotifyPropertyChanged]
-public partial class MainViewModel
+public partial class MainViewModel : ObservableObject
 {
     private int _counter = 0;
     
-    [ObservableProperty]
-    private string _text = "Main text";
+    private string _text = string.Empty;
+    private string _buttonText = string.Empty;
 
-    [ObservableProperty]
-    private string _buttonText = "Button text";
+    public MainViewModel()
+    {
+        IncreaseTextButtonCommand = new RelayCommand(IncreaseTextButton);
+        DecreaseTextButtonCommand = new RelayCommand(DecreaseTextButton);
+    }
+
+    public string Text
+    {
+        get => _text;
+        set => SetProperty(ref _text, value);
+    }
+
+    public string ButtonText
+    {
+        get => _buttonText;
+        set => SetProperty(ref _buttonText, value);
+    }
+
+    public ICommand IncreaseTextButtonCommand { get; }
+    public ICommand DecreaseTextButtonCommand { get; }
     
     [RelayCommand]
     private void SetText()
@@ -22,7 +40,6 @@ public partial class MainViewModel
         Text = "New Text";
     }
     
-    [RelayCommand]
     private void IncreaseTextButton()
     {
         Debug.WriteLine("Text is set.");
@@ -30,8 +47,6 @@ public partial class MainViewModel
         ButtonText = $"Button - {_counter}";
     }
     
-        
-    [RelayCommand]
     private void DecreaseTextButton()
     {
         Debug.WriteLine("Text is set.");

@@ -26,6 +26,11 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
+        builder.Services.AddSingleton<App>();
+        builder.Services.AddSingleton<AppShell>();
+        builder.Services.AddScopedWithShellRoute<MainPage, MainViewModel>(nameof(MainPage));
+        builder.Services.AddTransient<MainViewModel>();
+        builder.Services.AddSingleton(Preferences.Default);
 
         return builder.Build();
     }

@@ -2,14 +2,9 @@
 
 public class AppShell : Shell
 {
-    public AppShell()
+    public AppShell(MainPage mainPage)
     {
         Title = "MAUI App";
-        Items.Add(new ShellContent
-        {
-            Title = "Main",
-            ContentTemplate = new DataTemplate(() => new MainPage()),
-            Route = "MainPage"
-        });
+        Items.Add(mainPage);
     }
 }

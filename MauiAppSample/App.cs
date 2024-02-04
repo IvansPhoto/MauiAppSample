@@ -1,9 +1,12 @@
-﻿namespace MauiAppSample;
+﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Mvvm.DependencyInjection;
+
+namespace MauiAppSample;
 
 public class App : Application
 {
-    public App()
+    public App(AppShell appShell)
     {
-        MainPage = new AppShell();
+        MainPage = appShell;
     }
 }

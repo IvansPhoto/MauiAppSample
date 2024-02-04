@@ -12,6 +12,8 @@ public class MainPage : ContentPage
         {
             {
                 new Label()
+                    .Text("Label")
+                    .FontSize(25)
                     .Size(-1, 100)
                     .Bind(Label.TextProperty, static (MainViewModel vm) => vm.ButtonText, mode: BindingMode.OneWay),
                 DockPosition.Top
@@ -31,20 +33,21 @@ public class MainPage : ContentPage
             {
                 new Button()
                     .Size(100, -1)
-                    .Text("Left")
+                    .Text("Left 1")
                     .BindCommand(getter: static (MainViewModel vm) => vm.IncreaseTextButtonCommand),
                 DockPosition.Left
             },
             {
                 new Button()
                     .Size(100, -1)
-                    .Text("Right")
+                    .Text("Right 1")
                     .BindCommand(getter: static (MainViewModel vm) => vm.DecreaseTextButtonCommand),
                 DockPosition.Right
             },
 
             new Entry()
-                .FontSize(15)
+                .Placeholder("Some text")
+                .FontSize(25)
                 .Bind(Entry.TextProperty,
                     getter: static (MainViewModel vm) => vm.Text,
                     setter: static (vm, s) => vm.Text = s,
